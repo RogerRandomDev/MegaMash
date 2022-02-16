@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 1, 1, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 1, 1, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+volume = -10
+curgame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 512, 384 )
+own_world = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="ViewportContainer/Viewport"]
+show_behind_parent = true
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
+zoom = Vector2( 2, 2 )
+
+[node name="ScreenSides" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="ScreenSideL" type="ColorRect" parent="ViewportContainer/Viewport/ScreenSides"]
+show_behind_parent = true
+margin_right = 160.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ScreenSideR" type="ColorRect" parent="ViewportContainer/Viewport/ScreenSides"]
+show_behind_parent = true
+margin_left = 352.0
+margin_right = 512.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Labels" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="Label" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 24.0
+margin_right = 360.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 3
+text = "Space"
+align = 1
+
+[node name="Label2" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 88.0
+margin_right = 360.0
+margin_bottom = 470.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 2
+text = "BECOME THE HITCHHIKERS RIDE TO THE GALAXY"
+align = 1
+autowrap = true
+
+[node name="Release Date" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 360.0
+margin_right = 352.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 3 )
+text = "West-MEC© 2021"
+align = 1
+
+[node name="CoinCount" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 352.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 3 )
+text = "PRESS E TO
+INSERT 
+COINS"
+align = 1
+valign = 2
+
+[node name="Play" type="Label" parent="ViewportContainer/Viewport/Labels"]
+visible = false
+margin_left = 160.0
+margin_top = 165.0
+margin_right = 352.0
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 3 )
+text = "PRESS ENTER
+TO PLAY"
+align = 1
+valign = 2
+
+[node name="PlayerCount" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 144.0
+margin_top = 256.0
+margin_right = 368.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 4 )
+text = "<ONE PLAYER>
+TWO PLAYERS
+A<->D"
+align = 1
+
+[node name="Controls" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 5 )
+text = "CONTROLS:
+
+PLAYER 1:
+W-SHOOT
+A-LEFT
+D-RIGHT
+
+PLAYER 2:
+(NUMPAD)
+UP ARROW-SHOOT
+LEFT ARROW-LEFT
+RIGHT ARROW-RIGHT
+
+
+
+
+
+
+
+
+
+MENU:
+ENTER-START
+E-INSERT COIN
+TAB-TOGGLE SHADER"
+align = 1
+
+[node name="HighScores" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 352.0
+margin_top = 32.0
+margin_right = 512.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 6 )
+text = "TOP SCORES:"
+align = 1
+uppercase = true
+
+[node name="CoinFlash" type="Timer" parent="."]
+autostart = true
+
+[node name="Shader" type="Sprite" parent="." groups=[
+"SHADER",
+]]
+material = ExtResource( 1 )
+position = Vector2( -1.90735e-06, -3.45707e-06 )
+scale = Vector2( 16, 9.375 )
+texture = ExtResource( 4 )
+flip_v = true
+
+[connection signal="timeout" from="CoinFlash" to="." method="_on_CoinFlash_timeout"]
